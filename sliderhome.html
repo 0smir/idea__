@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Slider</title>
+	<link rel="stylesheet" type="text/css" href="sliderhome.css">
+
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+	
+</head>
+<body>
+		<button class="right">right</button>
+		<button class="left">left</button>
+	<div id='slider'>
+
+		<ul id='slide-container'>
+			<li>1<a href="#"><img src="images/1.jpg" alt=""></a></li>
+			<li>2<a href="#"><img src="images/2.jpg" alt=""></a></li>
+			<li>3<a href="#"><img src="images/7.jpg" alt=""></a></li>
+			<li>4<a href="#"><img src="images/4.jpg" alt=""></a></li>
+			<li>5<a href="#"><img src="images/6.jpg" alt=""></a></li>
+			<li>6<a href="#"><img src="images/5.jpg" alt=""></a></li>
+			<li>7<a href="#"><img src="images/3.jpg" alt=""></a></li>
+
+		</ul>
+		<ul class="controls"></ul>
+
+		
+	</div>
+		
+	<script>
+		'use strict';
+		var index = 1, count = $("#slide-container>li").length;
+		console.log(count);
+		
+		var html = '';
+
+		for (var i = 0; i < count; i++){
+			html = html +'<li></li>';         
+		}
+
+		$(".controls").html(html)//заменяем все содержимое внутри ul class="controls" тем самым добавляя туда все содержимое переменной html
+					.find('li:first-child')
+					.addClass('active');
+
+
+		var slideWidth = 700;
+		function next(){
+			$('#slide-container').stop().animate({'margin-left': -slideWidth}, 2000,
+				function(){
+					$(this).find('li:first-child').appendTo(this);
+					$(this).css({"margin-left":0}); //убираем маржин чтоб не проворачивало до третьей
+					$(".controls li:last-child").prependTo(".controls");
+				});
+			}
+		//next();
+
+		$(".right").click(next);
+		var timer = null;
+
+
+		function startInterval(){
+			timer = setInterval(next, 2000);
+		}
+
+		// function prev(){
+		// 	//$(this).find('li:last-child').prependTo(this)//не уверена что надо подставлять, т.к в случае отсуствия и присутствия первый раз сробатывает со сбоем
+
+		// 	$('#slide-container').animate({"margin-left":0}, 2000,
+
+		// 		function(){
+		// 			$(".controls li:first-child").appendTo(".controls");
+		// 			$(this).find('li:last-child').prependTo(this);
+		// 			$(this).css({"margin-left": -slideWidth});
+					
+		// 		});
+		// 		stop();
+		// 	}
+
+		//  работает верно, но 
+		//prev();
+
+		$(".left").click(prev);
+		var timer = null;
+
+		function startInterval(){
+			timer = setInterval(prev, 2000);
+		}
+
+
+
+		// function prev(){
+		// 	$('#slide-container').animate({"margin-left":slideWidth}, 1000,
+		// 		function(){
+		// 			$(this).find('li:last-child').prependTo(this);
+		// 			$(this).css({"margin-left":0});
+		// 			$(".controls li:first-child").appendTo(".controls");
+		// 		});
+		// 	}
+
+
+		// работает верно , но очень большая задержка при перелистовании слайдов
+
+
+
+
+
+
+		//startInterval(); // запускает движение по кругу
+
+
+
+
+
+
+		
+
+
+
+	</script>
+</body>
+</html>
