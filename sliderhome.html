@@ -65,22 +65,32 @@
 			timer = setInterval(next, 2000);
 		}
 
+		function prev(){
+			
+			$('#slide-container').find('li:last-child').prependTo('#slide-container')
+			$('#slide-container').animate({"margin-left":-700}, 0)
+			$('#slide-container').stop().animate({"margin-left":0}, 2000,
+				function (){
+					$(".controls li:first-child").appendTo(".controls");
+				});
+		}
+
 		// function prev(){
 		// 	//$(this).find('li:last-child').prependTo(this)//не уверена что надо подставлять, т.к в случае отсуствия и присутствия первый раз сробатывает со сбоем
-
+			 
 		// 	$('#slide-container').animate({"margin-left":0}, 2000,
 
-		// 		function(){
+		// 		function (){
 		// 			$(".controls li:first-child").appendTo(".controls");
 		// 			$(this).find('li:last-child').prependTo(this);
 		// 			$(this).css({"margin-left": -slideWidth});
 					
 		// 		});
-		// 		stop();
+		// 		//stop();
 		// 	}
 
-		//  работает верно, но 
-		//prev();
+		// //  работает верно, но дважды кликать надо и не верно индикаторы срабатывают
+		// //prev();
 
 		$(".left").click(prev);
 		var timer = null;
@@ -88,20 +98,6 @@
 		function startInterval(){
 			timer = setInterval(prev, 2000);
 		}
-
-
-
-		// function prev(){
-		// 	$('#slide-container').animate({"margin-left":slideWidth}, 1000,
-		// 		function(){
-		// 			$(this).find('li:last-child').prependTo(this);
-		// 			$(this).css({"margin-left":0});
-		// 			$(".controls li:first-child").appendTo(".controls");
-		// 		});
-		// 	}
-
-
-		// работает верно , но очень большая задержка при перелистовании слайдов
 
 
 
