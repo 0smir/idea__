@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ModalWindowHomeWork</title>
+	<link rel="stylesheet"  href="normalize.css">
+	<link rel="stylesheet" href="modal_hw.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<header>
+			<img src="images/london.jpg" alt="london">
+			<div class="calm">
+				<div class="crown">	
+				</div>
+				<p>
+					keep<br> calm</br> <span>and<br></span> learn<br> javascript
+				</p>
+			</div>
+		</header>
+		<div class="main">
+			<article>
+				<h2>London, Capital of Great Britain</h2>
+				<p>London is the capital of Great Britain, its political, economic, and commercial centre. It is one of the largest cities in the world and the largest city in Europe. Its population is about 8 million.</p>
+				<p>London is divided into several parts: the City, Westminster, the West End, and the East End.</p>
+				<p>The heart of London is the City, its financial and business centre. Numerous banks, offices, and firms are situated there, including the Bank of England, the Stock Exchange, and the Old Bailey. Few people live here, but over a million people come to the City to work. There are some famous ancient buildings within the City. Perhaps the most striking of them is the St. Paul's Cathedral, the greatest of English churches. It was built in the 17th century by Sir Christopher Wren. The Tower of London was founded by Julius Caesar and in 1066 rebuilt by William the Conqueror. It was used as a fortress, a royal palace, and a prison. Now it is a museum.</p>
+				<p>Westminster is the governmental part of London......</p>
+				<span>Bla-Bla-Bla....</span>
+				
+			</article>
+		</div>
+		<div class="exam">
+			<div class="question">
+				<p>
+				What you really know about England<br><span>?</span></p>
+			</div>	
+			
+			<div class="question">
+				<p>
+				Are you sure in your knowledge<br><span>?</span>
+				</p>
+			</div>
+			<div class="question">
+				<p>Take a test!</p>
+				<button data-modal="show" data-modal-name="maintest">Start test!</button>
+			</div>
+		</div><!--exam-->
+	</div><!--container-->
+	<div class="modal" data-modal-name="maintest">
+		<div class="test-quest">
+			<button>
+				Questions about the British Royal Family
+			</button>
+			<button></button>
+			<button></button>
+		</div>
+	</div>
+
+<script>
+	$("[data-modal='show']").on("click", function (){
+		var modalName = $(this).attr("data-modal-name");
+
+
+		$("[data-modal-name=" + modalName + "]").css({"display": "flex"});
+	});
+	
+</script>
+</body>
+</html>
