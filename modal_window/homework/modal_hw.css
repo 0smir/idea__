@@ -151,22 +151,100 @@ article > span{
 	box-shadow: inset 0px -4px 13px 3px rgba(56, 55, 19, .7);
 }
 
-.modal,
-.modal-xs{
+
+.modal{
 	background-color: rgba(117, 93, 111, .3);
+	justify-content: space-around;
+}
+
+.modal,
+.firstquestion,
+.wrong-answer{
 	display: none;
 	position: fixed;
-	justify-content: space-around;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 }
 
-.test-quest{
-	margin: auto;
+
+
+.firstquestion{
+	color: rgba(255,255,255, 1);
+	flex-direction: column;
+	background-color: rgba(117, 93, 111, .9);
 }
 
+ .info{
+	width: 85%;
+	margin: auto;
+	border-radius: 30px;
+	background-color: rgba(196, 195, 208, 1);
+}
+
+ .info >p{
+	padding: 0 15px;
+}
+
+.answer{
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 50px;
+}
+
+.answer > button{
+	height: 450px;
+	width: 30%;
+	border-radius: 20px;
+	border: 5px solid rgba(0, 64, 126, 1);
+	background-repeat: no-repeat;
+}
+
+.answer > button:first-child{
+	background-image: url(images/queen-elizabet.jpg);
+	background-position: 45% 0%;
+}
+
+.answer > button:nth-child(2){
+	background-image: url(images/queen-swees.jpg);
+	padding: 0;
+}
+
+.answer > button:last-child{
+	background-image: url(images/queen-monaco.jpg);
+}
+
+.test-quest{
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.test-quest > button{
+	display: block;
+	height: 70px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	background-color: rgba(255,255,255, 1);
+	border: 1px solid rgba(255,255,255, 1);
+	box-shadow: inset 0px -4px 13px 3px rgba(56, 55, 19, .7);
+}
+
+
+.wrong-answer{
+	flex-direction: column;
+	
+}
+
+.wrong-answer >.info{
+	text-transform: uppercase;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgba(198, 0, 54, 1);
+	border: 1px solid rgba(74, 74, 79, 1);
+}
 
 
 
