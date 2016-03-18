@@ -52,21 +52,65 @@
 	</div><!--container-->
 	<div class="modal" data-modal-name="maintest">
 		<div class="test-quest">
-			<button>
+			<button data-modal="show" data-modal-name="royalfamily">
 				Questions about the British Royal Family
 			</button>
-			<button></button>
-			<button></button>
+			<button>12</button>
+			<button>13</button>
+		</div>
+		<div class="modal firstquestion" data-modal-name="royalfamily">
+			<div class="info">
+				<p>
+					Queen Elizabeth II is the Queen of England, Scotland, Wales and Northern Ireland. She is the Queen of the United Kingdom. England does not have the Queen all to themselves. 
+				</p>
+				<p>
+					The Queen lives in Buckingham Palace in London. She also has other homes too. Her favourite is Balmoral Castle in Scotland where she spends Christmas. Windsor Castle is another of the Queen's homes.
+				</p>
+				<p>
+					How she looks like?
+				</p>
+				<p>
+					You see three ladies... Who is the Queen of England, Scotland, Wales and Northern Ireland?
+				</p>
+			
+			
+				<div class="answer">
+					<button data-modal="close" data-modal-name="royalfamily"></button>
+					<button data-modal="show" data-modal-name="wrong" ></button>
+					<button data-modal="show" data-modal-name="wrong"></button>
+				</div>
+			</div><!--info-->
+			<div class="wrong-answer" data-modal-name="wrong">
+				<div class="info">
+					<button class="close" data-modal="close" data-modal-name="wrong"><i class="fa fa-times"></i></button>
+					<p>that is wrong answer</p>
+				</div>
+			</div>
+	
 		</div>
 	</div>
 
 <script>
 	$("[data-modal='show']").on("click", function (){
 		var modalName = $(this).attr("data-modal-name");
+		//if (modalName !== $(this).attr("data-modal-name='wrong'")){
 
+		//}
 
 		$("[data-modal-name=" + modalName + "]").css({"display": "flex"});
 	});
+
+	$('[data-modal="close"]').on("click", function(){
+		var modalName = $(this).attr("data-modal-name");
+		// if (modalName === $(this).attr("data-modal-name")){
+		// 	$(this).css({"display": "none"});
+		// }else{
+		// }
+		$("[data-modal-name=" + modalName + "]").css({"display": "none"});
+	
+	});
+
+	
 	
 </script>
 </body>
