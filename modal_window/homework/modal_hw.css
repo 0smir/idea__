@@ -170,17 +170,23 @@ article > span{
 
 
 
-.firstquestion{
+.firstquestion,
+.secondquestion,
+.thirdquestion{
 	color: rgba(255,255,255, 1);
 	flex-direction: column;
 	background-color: rgba(117, 93, 111, .9);
 }
 
- .info{
+.firstquestion .info{
 	width: 85%;
 	margin: auto;
 	border-radius: 30px;
 	background-color: rgba(196, 195, 208, 1);
+}
+
+.secondquestion .info{
+	display: flex;
 }
 
  .info >p{
@@ -193,7 +199,7 @@ article > span{
 	margin-bottom: 50px;
 }
 
-.answer > button{
+.firstquestion .answer > button{
 	height: 450px;
 	width: 30%;
 	border-radius: 20px;
@@ -201,17 +207,17 @@ article > span{
 	background-repeat: no-repeat;
 }
 
-.answer > button:first-child{
+.firstquestion .answer > button:first-child{
 	background-image: url(images/queen-elizabet.jpg);
 	background-position: 45% 0%;
 }
 
-.answer > button:nth-child(2){
+.firstquestion .answer > button:nth-child(2){
 	background-image: url(images/queen-swees.jpg);
 	padding: 0;
 }
 
-.answer > button:last-child{
+.firstquestion .answer > button:last-child{
 	background-image: url(images/queen-monaco.jpg);
 }
 
@@ -232,19 +238,21 @@ article > span{
 }
 
 
-.wrong-answer{
-	flex-direction: column;
-	
-}
-
-.wrong-answer >.info{
+.wrong > span{
+	display: none;
+	color: rgba(255, 3, 72, 1);
 	text-transform: uppercase;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: rgba(198, 0, 54, 1);
-	border: 1px solid rgba(74, 74, 79, 1);
+	font-size: 25px;
+	background-color: rgba(255,255,255, 1);
+	border-radius: 5px;
 }
 
-
+.queen-tea{
+	width: 80%;
+	height: 455px;
+	background-image: url(images/tea.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0 auto;
+}
 

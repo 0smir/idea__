@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Tooltips</title>
+	<link rel="stylesheet" type="text/css" href="tooltip.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+	<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+
+	<div class="main">
+		<!--<div class="tool-wrap">
+			<div class="tool">
+				<p>Подпись! Надеюсь всем ясно</p>
+			</div>
+		</div>-->
+		<img src="images/london.jpg" data-tooltip="Подпись! Надеюсь всем ясно">
+	</div>
+
+
+
+
+<script>
+	$('[data-tooltip]').on('mouseover', function(){
+		var text = $(this).attr('data-tooltip');
+		var	html = '<div class="tool-wrap"><div class="tool"><p>' + text + '</p></div></div>';
+		console.log(text);
+
+		$(this).before(html);
+
+		var imageWidth = $(this).outerWidth(), //возвращает ширину элемента в дан случ картинки с учетом padding
+			imageHeight = $(this).outerHeight();//возвращает высоту элемента в дан случ картинки с учетом padding
+			console.log(imageWidth, imageHeight);
+
+		if (imageWidth < 120){
+			imageWidth = 120; //minwidth = 120px;
+		} else if (imageWidth > imageWidth){
+			imageWidth = imageWidth; // max-width = 400px;
+		}
+
+		//$(this).prev().css({"width": imageWidth});//prev-Возвращает элементы, которые находятся непосредственно перед каждым из выбранных элементов. (в нашем случае это <div class="tool-wrap"> )
+		var tooltipElement = $(this).prev();
+
+		tooltipElement.css({"width": imageWidth}); //$ - прописовать символ не надо т.к. этот знак прописан при присвоении значения
+												//переписываем высоту div class="tool-wrap"
+
+		var textHeight = tooltipElement.find(".tool").outerHeight();//узнаем размер блока в который вложен текст (div class="tool")
+		console.log(textHeight);//52
+
+		var fullHeight = textHeight +  imageHeight;
+
+		tooltipElement.css({'height': fullHeight});
+
+		tooltipElement.on('mouseout', function(){
+			$(this).remove();
+		});
+	});
+</script>
+</body>
+</html>

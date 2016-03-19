@@ -55,7 +55,7 @@
 			<button data-modal="show" data-modal-name="royalfamily">
 				Questions about the British Royal Family
 			</button>
-			<button>12</button>
+			<button data-modal="show" data-modal-name="tradition">Tradition of Great Britain</button>
 			<button>13</button>
 		</div>
 		<div class="modal firstquestion" data-modal-name="royalfamily">
@@ -72,42 +72,66 @@
 				<p>
 					You see three ladies... Who is the Queen of England, Scotland, Wales and Northern Ireland?
 				</p>
-			
-			
 				<div class="answer">
 					<button data-modal="close" data-modal-name="royalfamily"></button>
-					<button data-modal="show" data-modal-name="wrong" ></button>
-					<button data-modal="show" data-modal-name="wrong"></button>
+					<button class="wrong" >
+						<span>wrong answer!</span>
+					</button>
+					<button class="wrong">
+						<span>wrong answer!</span>
+					</button>
+				</div><!--answer-->
+			</div><!--info-->
+		</div><!--firstquestion-->
+		<div class="modal secondquestion" data-modal-name="tradition">
+			
+				
+				<div class="queen-tea">
+					<div class="info">
+						<h3>Tradition of England</h3>
+						<p>
+							England is a special country. It is generally believed that English people respect their traditions very much. It’s true and one of the well known English traditions is tea.
+						</p>
+						<p>
+							This tradition was introduced in England by Anna, the seventh Duchess of Bedford, in the year 1840. 
+						</p>
+					</div>
 				</div>
 			</div><!--info-->
-			<div class="wrong-answer" data-modal-name="wrong">
-				<div class="info">
-					<button class="close" data-modal="close" data-modal-name="wrong"><i class="fa fa-times"></i></button>
-					<p>that is wrong answer</p>
-				</div>
+
+			<div class="answer">
+				<button></button>
+				<button></button>
+				<button></button>
 			</div>
-	
 		</div>
-	</div>
+		<div class="modal thirdquestion">
+			<div class="info"></div>
+			<div class="answer">
+				<button></button>
+				<button></button>
+				<button></button>
+			</div>
+			
+		</div>
+	</div><!--modal-->
 
 <script>
 	$("[data-modal='show']").on("click", function (){
 		var modalName = $(this).attr("data-modal-name");
-		//if (modalName !== $(this).attr("data-modal-name='wrong'")){
-
-		//}
 
 		$("[data-modal-name=" + modalName + "]").css({"display": "flex"});
 	});
 
 	$('[data-modal="close"]').on("click", function(){
 		var modalName = $(this).attr("data-modal-name");
-		// if (modalName === $(this).attr("data-modal-name")){
-		// 	$(this).css({"display": "none"});
-		// }else{
-		// }
 		$("[data-modal-name=" + modalName + "]").css({"display": "none"});
 	
+	});
+
+	$('.wrong').on('click', function(){
+		$(this).find('span').css({'display':'block'});
+
 	});
 
 	

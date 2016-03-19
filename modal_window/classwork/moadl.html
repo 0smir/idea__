@@ -61,6 +61,9 @@
 		var modalName = $(this).attr("data-modal-name");
 
 		$("[data-modal-name=" + modalName + "]").css({"display": "none"});
+		if (modalName = $("button").attr("wrong")){
+			$("button").attr("wrong").css({"display": "flex"})
+		}
 	});
 
 
