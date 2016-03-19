@@ -186,7 +186,11 @@ article > span{
 }
 
 .secondquestion .info{
+	width: 50%;
+	height: 100%;
 	display: flex;
+	flex-direction: column;
+	background-color: rgba(233, 150, 122, 1);
 }
 
  .info >p{
@@ -253,6 +257,7 @@ article > span{
 	background-image: url(images/tea.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-position: 230px 0;
 	margin: 0 auto;
 }
 
