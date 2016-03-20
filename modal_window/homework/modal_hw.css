@@ -25,6 +25,10 @@ header{
 	margin: auto;
 }
 
+h3{
+	text-align: center;
+}
+
 .calm{
 	height: 300px;
 	width: 420px;
@@ -263,7 +267,7 @@ article > span{
 }
 
 .secondquestion .answer > button{
-	height: 50px;
+	min-height: 50px;
 	width: 25%;
 	border-radius: 10px;
 	justify-content: center;
@@ -274,3 +278,12 @@ article > span{
 	margin: 0 auto;
 }
 /*to do   add styles for buttons*/
+
+.secondquestion .answer > button{
+	background-color: rgba(255, 167, 0, 1);
+	border: 1px solid rgba(166, 109, 0, 1);
+	box-shadow: 0px 0px 23px 9px rgba(56, 43, 26, .6),
+				inset 0px -5px 18px 7px rgba(166, 109, 0, .9),
+				inset 0px 16px 16px 5px rgba(255, 207, 115, .9);
+}
+
