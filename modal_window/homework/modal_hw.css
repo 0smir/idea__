@@ -202,33 +202,36 @@ article > span{
 }
 /*-----------firstquestion-----------*/
 
-.firstquestion .info{
-	width: 85%;
+.queen-look{
+	width: 80%;
 	margin: auto;
-	border-radius: 30px;
+	/*border-radius: 30px;*/
 	background-color: rgba(196, 195, 208, 1);
 }
 
 .firstquestion .answer > button{
-	height: 450px;
+	height: 350px;
 	width: 30%;
 	border-radius: 20px;
 	border: 5px solid rgba(0, 64, 126, 1);
 	background-repeat: no-repeat;
+	margin-bottom: 30px;
 }
 
 .firstquestion .answer > button:first-child{
 	background-image: url(images/queen-elizabet.jpg);
-	background-position: 45% 0%;
+	background-position: 48% 0%;
 }
 
 .firstquestion .answer > button:nth-child(2){
 	background-image: url(images/queen-swees.jpg);
+	background-position: 40% 10%;
 	padding: 0;
 }
 
 .firstquestion .answer > button:last-child{
 	background-image: url(images/queen-monaco.jpg);
+	background-position: 35% 30%;
 }
 
 
@@ -316,8 +319,7 @@ article > span{
 	margin-bottom: 50px;
 }
 
-.secondquestion .answer,
-.thirdquestion .answer{
+.answer{
 	width: 80%;
 	margin: 0 auto;
 }
