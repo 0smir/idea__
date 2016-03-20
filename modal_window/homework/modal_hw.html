@@ -47,6 +47,7 @@
 			<div class="question">
 				<p>Take a test!</p>
 				<button data-modal="show" data-modal-name="maintest">Start test!</button>
+				<button class="success">You Successfully Pass  test</button>
 			</div>
 		</div><!--exam-->
 	</div><!--container-->
@@ -134,9 +135,9 @@
 				</div>
 			</div>
 			<div class="answer">
-				<button>Margate’s Shell Grotto</button>
-				<button>Chanctonbury Ring</button>
-				<button data-modal="close" data-modal-name="mystic-place">Stonehenge</button>
+				<button class="wrong">Margate’s Shell Grotto <span>wrong answer!</span></button>
+				<button class="wrong">Chanctonbury Ring <span>wrong answer!</span></button>
+				<button data-modal="close" data-modal-name="maintest">Stonehenge</button>
 			</div>
 			
 		</div>
@@ -153,6 +154,14 @@
 		var modalName = $(this).attr("data-modal-name");
 		$("[data-modal-name=" + modalName + "]").css({"display": "none"});
 	
+	});
+
+	$(".thirdquestion").find('button[data-modal-name="maintest"]').on('click', function(){
+		$(".modal").css({"display": "none"});
+	});
+
+	$(".thirdquestion").find('button[data-modal-name="maintest"]').on('click', function(){
+		$(".success").css({"display": "flex"});
 	});
 
 	$('.wrong').on('click', function(){
