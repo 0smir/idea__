@@ -32,7 +32,7 @@
 			<p>
 				Этот космический газопылевой столб имеет в ширину два световых года. Структура находится в одной из самых крупных областей звездообразования нашей Галактики, туманности Киля, которая видна на южном небе и удалена от нас на 7500 световых лет. 
 			</p>
-
+			<img src="images/andromeda.jpg" data-tooltip="Галактика Андромеды" >
 			
 		</div>
 		<footer>
@@ -40,12 +40,39 @@
 		</footer>
 	</div><!--wrapper-->
 <script>
+(function(){
 	$('[data-tooltip]').on('mouseover', function(){
 		var text = $(this).attr('data-tooltip');
 		var tooltipHtml = '<div class="tooltip-wrapper"><div class="tooltip"><p>' + text + '</p></div></div>';
 		console.log(text);
 	$(this).before(tooltipHtml);
+		var imageWidth = $(this).outerWidth(),
+			imageHeight = $(this).outerHeight();
+		console.log(imageWidth, imageHeight);
+	if (imageWidth < 120){
+		imageWidth = 120;
+	}else if (imageWidth > 400){
+		imageWidth = imageWidth;
+	}
+
+	var tooltipBlock = $(this).prev();
+	tooltipBlock.css({"width": imageWidth});
+
+	var textHeight = tooltipBlock.find(".tooltip").outerHeight();
+	console.log(textHeight);
+
+	var fullHeight = textHeight + imageHeight;
+		tooltipBlock.css({'height': fullHeight});
+
+
+		tooltipBlock.on("mouseout", function(){
+			$(this).remove();
+		});
 	});
+})();//работает верно
+
+
+})()
 	
 
 </script>
