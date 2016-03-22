@@ -3,8 +3,22 @@
 	margin: 0 auto;
 }
 
+
+.image-wrapper{
+	
+	position: relative;
+	border: 1px solid red;
+	display: flex;
+	flex-direction: column;
+}
+
+img{
+	margin: auto;
+}
+
 .tooltip-wrapper{
 	position: absolute;
+	left: 179px;
 	display: flex;
 	border: 1px dashed grey;
 	flex-direction: column;
