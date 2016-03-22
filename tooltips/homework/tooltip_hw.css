@@ -1,0 +1,47 @@
+.main{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.tooltip-wrapper{
+	position: absolute;
+	display: flex;
+	border: 1px dashed grey;
+	flex-direction: column;
+}
+
+.tooltip > p{
+	text-align: center;
+	color: red;
+}
+
+.tooltip{
+	width: 50%;
+	margin: 0 auto;
+	background-color: #ffffff;
+	border: 1px solid grey;
+	align-self: flex-end;
+}
+
+.tooltip::before{
+	content: ' ';
+	position: absolute;
+	border: 10px solid transparent;
+	border-bottom: 10px solid grey;
+}
+
+.top{
+	justify-content: flex-start;
+}
+
+.bottom{
+	justify-content: flex-end;
+}
+
+.right{
+	align-self: flex-end;
+}
+
+.left{
+	align-self: flex-start;
+}
