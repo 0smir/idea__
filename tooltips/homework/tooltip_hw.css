@@ -18,7 +18,7 @@ img{
 
 .tooltip-wrapper{
 	position: absolute;
-	left: 179px;
+	left: 153px;
 	display: flex;
 	border: 1px dashed grey;
 	flex-direction: column;
@@ -26,36 +26,95 @@ img{
 
 .tooltip > p{
 	text-align: center;
-	color: red;
+	color: rgba(75, 75, 78, 1);
 }
 
 .tooltip{
-	width: 50%;
-	margin: 0 auto;
-	background-color: #ffffff;
-	border: 1px solid grey;
-	align-self: flex-end;
+	width: 30%;
+	border-radius: 10px;
+	background-color: rgba(229, 229, 229, 1);
+	border: 2px solid rgba(75, 75, 78, 1);
 }
 
-.tooltip::before{
+.bottom,
+.left,
+.right{
+	position: relative;
+}
+
+.top::before,
+.top::after,
+.bottom::before,
+.bottom::after,
+.right::before,
+.right::after,
+.left::before,
+.left::after{
 	content: ' ';
 	position: absolute;
 	border: 10px solid transparent;
-	border-bottom: 10px solid grey;
 }
 
-.top{
-	justify-content: flex-start;
+.top::before,
+.bottom::before,
+.right::before,
+.left::before{
+	border-bottom: 10px solid rgba(75, 75, 78, 1);
 }
 
-.bottom{
-	justify-content: flex-end;
+
+.top::after,
+.bottom::after,
+.right::after,
+.left::after{
+	border-bottom: 10px solid rgba(229, 229, 229, 1);
 }
 
-.right{
-	align-self: flex-end;
+
+.top::before{
+	left: 50%;
+	top: 52px;
+	transform: rotate(180deg);
 }
 
-.left{
-	align-self: flex-start;
+.top::after{
+	left: 50%;
+	top: 49px;
+	transform: rotate(180deg);
+}
+
+.bottom::before{	
+	left: 45%;
+	top: -20px;
+	transform: rotate(0deg);
+}
+
+.bottom::after{
+	left: 45%;
+	top: -17px;
+	transform: rotate(0deg);
+}
+
+
+.right:before{
+	left: -20px;
+	top: 30%;
+	transform: rotate(270deg);
+}
+
+.right::after{
+	left: -17px;
+	top: 30%;
+	transform: rotate(270deg);
+}
+.left:before{
+	right: -20px;
+	top: 40%;
+	transform: rotate(90deg);
+}
+
+.left::after{
+	right: -17px;
+	top: 40%;
+	transform: rotate(90deg);
 }
