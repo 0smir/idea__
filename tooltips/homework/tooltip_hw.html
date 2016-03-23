@@ -59,36 +59,7 @@
 		</footer>
 	</div><!--wrapper-->
 <script>
-// (function(){
-// 	$('[data-tooltip]').on('mouseover', function(){
-// 		var text = $(this).attr('data-tooltip');
-// 		var tooltipHtml = '<div class="tooltip-wrapper"><div class="tooltip"><p>' + text + '</p></div></div>';
-// 		console.log(text);
-// 	$(this).before(tooltipHtml);
-// 		var imageWidth = $(this).outerWidth(),
-// 			imageHeight = $(this).outerHeight();
-// 		console.log(imageWidth, imageHeight);
-// 	if (imageWidth < 120){
-// 		imageWidth = 120;
-// 	}else if (imageWidth > 400){
-// 		imageWidth = imageWidth;
-// 	}
 
-// 	var tooltipBlock = $(this).prev();
-// 	tooltipBlock.css({"width": imageWidth});
-
-// 	var textHeight = tooltipBlock.find(".tooltip").outerHeight();
-// 	console.log(textHeight);
-
-// 	var fullHeight = textHeight + imageHeight;
-// 		tooltipBlock.css({'height': fullHeight});
-
-
-// 		tooltipBlock.on("mouseout", function(){
-// 			$(this).remove();
-// 		});
-// 	});
-// })();//работает верно
 
 (function(){
 	$('[data-tooltip]').on('mouseover', function(){
@@ -119,40 +90,44 @@
 	var fullWidth = imageWidth + textWidth;
 	console.log(fullWidth);
 	
-	var fullHeight = textHeight + imageHeight;
-	var fullHeight = textHeight + imageHeight;
-		//tooltipBlock.css({'height': fullHeight});
+	var fullHeight = textHeight + imageHeight + 10;
+	
+	tooltipBlock.css({'height': fullHeight});
 	
 
-		tooltipBlock.css({'height': fullHeight});
+	var toolTipLocation = $(this).attr('data-placement');
+	console.log(toolTipLocation);
+
+	if($( this ).is ('[data-placement="top"]')){
+
+		tooltipBlock.css({'top': -(textHeight + 10)});
+		tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
+		tooltipBlock.find('.tooltip').addClass("top");
+
+	}else if ($( this ).is ('[data-placement="bottom"]')){
+
+		tooltipBlock.css({'top': '0', 'justify-content': 'flex-end'});
+		tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
+		tooltipBlock.find('.tooltip').addClass("bottom");
+
+	}else if ($( this ).is ('[data-placement="right"]')){
+
+		tooltipBlock.css({'height': imageHeight, 'width': fullWidth});
+		tooltipBlock.find(".tooltip").css({'align-self': "flex-end"})
+		tooltipBlock.find('.tooltip').addClass("right");
+	}else if ($( this ).is ('[data-placement="left"]')){
+
+		tooltipBlock.css({'height': imageHeight, 'width': fullWidth, "left": '-45px'});
+		tooltipBlock.find(".tooltip").css({'align-self': "flex-start"});
+		tooltipBlock.find('.tooltip').addClass("left");
+	}
 
 
-	
 
-		var toolTipLocation = $(this).attr('data-placement');
-		console.log(toolTipLocation);
-
-		if($( this ).is ('[data-placement="top"]')){
-			tooltipBlock.css({'top': -textHeight});
-			tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
-		}else if ($( this ).is ('[data-placement="bottom"]')){
-
-			tooltipBlock.css({'top': '0', 'justify-content': 'flex-end'});
-			tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
-		}else if ($( this ).is ('[data-placement="right"]')){
-			tooltipBlock.css({'height': imageHeight, 'width': fullWidth});
-			tooltipBlock.find(".tooltip").css({'align-self': "flex-end"})
-		}else if ($( this ).is ('[data-placement="left"]')){
-			tooltipBlock.css({'height': imageHeight, 'width': fullWidth, "left": '0'});
-			tooltipBlock.find(".tooltip").css({'align-self': "flex-start"});
-		}
-	
-
-
-		tooltipBlock.on("mouseout", function(){
-			$(this).remove();
-		});
+	tooltipBlock.on("mouseout", function(){
+		$(this).remove();
 	});
+});
 
 
 })()
