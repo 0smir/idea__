@@ -1,3 +1,33 @@
+*{
+	box-sizing: border-box;
+}
+
+header{
+	width: 80%;
+	height: 300px;
+	margin: 0 auto;
+	padding: 10px 15px;
+	background-image: url(images/jupiter.jpg);
+	background-color: rgba(2, 0, 47, 1);
+	background-repeat: no-repeat;
+	display: flex;
+	justify-content: flex-end;
+}
+
+
+header p{
+	width: 30%;
+	margin: 0;
+	color: rgba(255, 255, 255, .8);
+	align-self: flex-end;
+	font-style: italic;
+}
+
+p,
+h2{ 
+    text-indent: 3%;
+    color: rgba(75, 75, 78, 1);
+}
 .main{
 	width: 80%;
 	margin: 0 auto;
@@ -5,9 +35,8 @@
 
 
 .image-wrapper{
-	
 	position: relative;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 	display: flex;
 	flex-direction: column;
 }
@@ -18,7 +47,7 @@ img{
 
 .tooltip-wrapper{
 	position: absolute;
-	left: 153px;
+	left: 180px;
 	display: flex;
 	border: 1px dashed grey;
 	flex-direction: column;
