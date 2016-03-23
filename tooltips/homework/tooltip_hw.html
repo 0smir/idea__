@@ -28,7 +28,7 @@
 			</p>
 			<div class="image-wrapper">
 			
-				<img src="images/keel.jpg" data-tooltip="Столб и джеты в туманности Киля">
+				<img src="images/keel.jpg" data-tooltip="Столб и джеты в туманности Киля" data-placement="right">
 			</div>
 			<p>
 				Этот космический газопылевой столб имеет в ширину два световых года. Структура находится в одной из самых крупных областей звездообразования нашей Галактики, туманности Киля, которая видна на южном небе и удалена от нас на 7500 световых лет. 
@@ -97,10 +97,11 @@
 
 	$(this).before(tooltipHtml);
 
-	var imageWidth = $(this).outerWidth(),
-		imageHeight = $(this).outerHeight();
-
-		//min-max - image width
+	var imageWidth = $(this).outerWidth(),// return img width + padding
+		imageHeight = $(this).outerHeight();// return img height + padding
+		console.log('imageWidth' + imageWidth);
+		console.log('imageHeight' + imageHeight);
+	//min-max - image width
 	if (imageWidth < 120){
 		imageWidth = 120;
 	}else if (imageWidth > 400){
@@ -113,25 +114,39 @@
 	tooltipBlock.css({"width": imageWidth});
 
 	var textHeight = tooltipBlock.find(".tooltip").outerHeight();
-
+	var textWidth = tooltipBlock.find(".tooltip").outerWidth();
+	console.log(textWidth);
+	var fullWidth = imageWidth + textWidth;
+	console.log(fullWidth);
 	
 	var fullHeight = textHeight + imageHeight;
-	var fullHeight = textHeight + imageHeight + 10;
+	var fullHeight = textHeight + imageHeight;
 		//tooltipBlock.css({'height': fullHeight});
 	
 
 		tooltipBlock.css({'height': fullHeight});
 
 
-	var toolTipLocation = $(this).attr('data-placement');
-	console.log(toolTipLocation);
-	if(toolTipLocation = top){
-		tooltipBlock.css({'top': - textHeight});
-	}else if (toolTipLocation = bottom){
-		tooltipBlock.tooltipBlock.css({'height': fullHeight, 'top': textHeight, 'justify-content': 'flex-end'});
-	};
+	
 
+		var toolTipLocation = $(this).attr('data-placement');
+		console.log(toolTipLocation);
 
+		if($( this ).is ('[data-placement="top"]')){
+			tooltipBlock.css({'top': -textHeight});
+			tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
+		}else if ($( this ).is ('[data-placement="bottom"]')){
+
+			tooltipBlock.css({'top': '0', 'justify-content': 'flex-end'});
+			tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
+		}else if ($( this ).is ('[data-placement="right"]')){
+			tooltipBlock.css({'height': imageHeight, 'width': fullWidth});
+			tooltipBlock.find(".tooltip").css({'align-self': "flex-end"})
+		}else if ($( this ).is ('[data-placement="left"]')){
+			tooltipBlock.css({'height': imageHeight, 'width': fullWidth, "left": '0'});
+			tooltipBlock.find(".tooltip").css({'align-self': "flex-start"});
+		}
+	
 
 
 		tooltipBlock.on("mouseout", function(){
