@@ -30,28 +30,24 @@
 				<p>
 					Невиданные ранее далекие галактики и туманности, умирающие и рождающиеся звезды поражают воображение своим разнообразием, подталкивают к мечте о далеких путешествиях. Сказочные пейзажи из звездной пыли и газовых облаков открывают перед нами потрясающие по своей красоте загадочные явления. 
 				</p>
-				<div class="image-wrapper">
+				<img src="images/keel.jpg" data-tooltip="Столб и джеты в туманности Киля" data-placement="right">
 				
-					<img src="images/keel.jpg" data-tooltip="Столб и джеты в туманности Киля" data-placement="right">
-				</div>
 				<p>
 					Этот космический газопылевой столб имеет в ширину два световых года. Структура находится в одной из самых крупных областей звездообразования нашей Галактики, туманности Киля, которая видна на южном небе и удалена от нас на 7500 световых лет. 
 				</p>
-				<div class="image-wrapper">
-					<img src="images/andromeda.jpg" data-tooltip="Галактика Андромеды" data-placement="top">
-				</div>
+				
+				<img src="images/andromeda.jpg" data-tooltip="Галактика Андромеды" data-placement="top">
+				
 				<p>
 					Галактика Андромеды — самая близкая к нашему Млечному Пути из гигантских галактик. Скорее всего, наша галактика выглядит примерно так же, как и эта. Сотни миллиардов звезд, составляющих галактику Андромеды, вместе дают видимое диффузное свечение. Отдельные звезды на изображении являются в действительности звездами нашей Галактики, расположенными гораздо ближе удаленного объекта. 
 				</p>
-				<div class="image-wrapper">
-					<img src="images/lion.jpg" data-tooltip="Спиральная галактика NGC 3521" data-placement="bottom">
-				</div>
+				<img src="images/lion.jpg" data-tooltip="Спиральная галактика NGC 3521" data-placement="bottom">
+				
 				<p>
 					Спиральная галактика NGC 3521 находится на расстоянии всего лишь 35 миллионов световых лет от нас в направлении на созвездие Льва. Галактика, простирающаяся на 50 000 световых лет, обладает такими особенностями, как рваные спиральные рукава неправильной формы, украшенные пылью, розоватые области звездообразования и скопления молодых голубоватых звёзд. 
 				</p>
-				<div class="image-wrapper">
-					<img src="images/omega.jpg" data-tooltip="Туманность Омега находится в богатом туманностями созвездии Стрельца" data-placement="left">
-				</div>
+				<img src="images/omega.jpg" data-tooltip="Туманность Омега находится в богатом туманностями созвездии Стрельца" data-placement="left">
+				
 				<p>
 					Сформированные звездными ветрами и излучением, эти фантастические, похожие на волны образования находятся в туманности Омега и входят в область звездообразования. Туманность Омега находится в богатом туманностями созвездии Стрельца и удалена на расстояние 5500 световых лет. Клочковатые сгущения плотного и холодного газа и пыли освещены излучением звезд, находящихся на изображении вверху справа, в будущем они могут стать местами звездообразования. 
 				</p>
@@ -67,7 +63,7 @@
 
 
 (function(){
-	$('[data-tooltip]').on('mouseover', function(){
+	$('[data-tooltip]').on('mouseenter', function(){
 	var text = $(this).attr('data-tooltip');
 	var tooltipHtml = '<div class="tooltip-wrapper"><div class="tooltip"><p>' + text + '</p></div></div>';
 
@@ -105,31 +101,32 @@
 
 	if($( this ).is ('[data-placement="top"]')){
 
-		tooltipBlock.css({'top': -(textHeight + 10)});
+		tooltipBlock.css({'margin-top': -(textHeight + 10)});
 		tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
 		tooltipBlock.find('.tooltip').addClass("top");
 
 	}else if ($( this ).is ('[data-placement="bottom"]')){
 
-		tooltipBlock.css({'top': '0', 'justify-content': 'flex-end'});
-		tooltipBlock.find('.tooltip').css({"margin": "0 auto"});
+		tooltipBlock.css({'justify-content': 'flex-end'});
+		tooltipBlock.find('.tooltip').css({"margin": "-75px 240px 0"});
 		tooltipBlock.find('.tooltip').addClass("bottom");
 
 	}else if ($( this ).is ('[data-placement="right"]')){
 
-		tooltipBlock.css({'height': imageHeight, 'width': fullWidth});
-		tooltipBlock.find(".tooltip").css({'align-self': "flex-end"})
+		tooltipBlock.css({'height': imageHeight, 'width': fullWidth, 'flex-direction': 'row', 'justify-content': 'flex-end'});
+		tooltipBlock.find(".tooltip").css({'margin': "100px 0 0 -185px"})
 		tooltipBlock.find('.tooltip').addClass("right");
+
 	}else if ($( this ).is ('[data-placement="left"]')){
 
-		tooltipBlock.css({'height': imageHeight, 'width': fullWidth, "left": '-13px'});
+		tooltipBlock.css({'height': imageHeight, 'width': fullWidth, 'margin-left': -textWidth});
 		tooltipBlock.find(".tooltip").css({'align-self': "flex-start"});
 		tooltipBlock.find('.tooltip').addClass("left");
 	}
 
 
 
-	tooltipBlock.on("mouseout", function(){
+	tooltipBlock.on("mouseleave", function(){
 		$(this).remove();
 	});
 });
