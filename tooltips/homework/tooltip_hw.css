@@ -3,7 +3,7 @@
 }
 
 header{
-	width: 80%;
+	width: 70%;
 	height: 300px;
 	margin: 0 auto;
 	padding: 10px 15px;
@@ -29,25 +29,25 @@ h2{
     color: rgba(75, 75, 78, 1);
 }
 .main{
-	width: 80%;
+	width: 70%;
 	margin: 0 auto;
 }
 
 
 .image-wrapper{
-	position: relative;
-	/*border: 1px solid red;*/
+	/*position: relative;
+	border: 1px solid red;*/
 	display: flex;
 	flex-direction: column;
 }
 
-img{
+/*img{
 	margin: auto;
-}
+}*/
 
 .tooltip-wrapper{
 	position: absolute;
-	left: 180px;
+	/*left: 180px;*/
 	display: flex;
 	border: 1px dashed grey;
 	flex-direction: column;
@@ -68,8 +68,13 @@ img{
 .bottom,
 .left,
 .right{
-	position: relative;
+	position: absolute;
 }
+
+.bottom{
+margin: -50px;
+}
+
 
 .top::before,
 .top::after,
